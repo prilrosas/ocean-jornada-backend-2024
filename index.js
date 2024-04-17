@@ -68,4 +68,20 @@ app.get('/oi', function (req, res) {
     res.send('Item atualizado com sucesso: ' +id + '.' +novoItem)
   })
 
+  //Endpoint Delete -> [DELETE] /ITE,/:ID
+
+  app.delete ('/item/:id', function(req, res){
+
+     //Otemos o ID do parametro de rota
+    const id = req.params.id
+
+    //Removemos item da lista
+
+    delete lista[id -1]
+
+    //Adicionamos uma mensagem de sucesso 
+
+    res.send('item removido com sucesso: ' +id)
+  })
+
 app.listen(3000)
